@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "workspace": {
+    "name": "Ludvik-Solar",
+    "createdAt": 1773063832421,
+    "preset": "starter"
+  },
+  "authorizedRoots": [
+    "C:\\Projekty\\Ludvik-Solar"
+  ]
+}

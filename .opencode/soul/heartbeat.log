@@ -1,0 +1,145 @@
+[2026-03-09T14:18:55.483Z] [INFO] Starting heartbeat check
+[2026-03-09T14:18:55.509Z] [INFO] ✗ server_running: Local dev server is running on port 3000
+[2026-03-09T14:18:55.510Z] [WARN]   → {"ok":false,"error":""}
+[2026-03-09T14:18:55.511Z] [INFO] ✗ google_maps_key: Google Maps API key is configured in environment
+[2026-03-09T14:18:55.511Z] [WARN]   → {"ok":false,"error":"Environment variable NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is not set"}
+[2026-03-09T14:18:55.512Z] [INFO] ✓ main_html_exists: Main index.html file exists
+[2026-03-09T14:18:55.512Z] [INFO] ✗ ludvik_html_exists: Ludvik a Syn HTML file exists
+[2026-03-09T14:18:55.514Z] [WARN]   → {"ok":false,"error":"ENOENT: no such file or directory, access 'C:\\Projekty\\Ludvik-Solar\\ludvik-a-syn.html'"}
+[2026-03-09T14:18:55.515Z] [INFO] ✓ css_exists: Main stylesheet exists
+[2026-03-09T14:18:55.515Z] [INFO] ✓ js_exists: Main script file exists
+[2026-03-09T14:18:55.516Z] [INFO] ✓ images_reference: Reference images directory contains files
+[2026-03-09T14:18:55.516Z] [INFO] ✓ env_file: .env file exists (optional)
+[2026-03-09T14:18:55.517Z] [INFO] Heartbeat completed: 5 passed, 3 failed
+[2026-03-09T14:20:19.983Z] [INFO] Starting heartbeat check
+[2026-03-09T14:20:20.007Z] [INFO] ✗ server_running: Local dev server is running on port 3000
+[2026-03-09T14:20:20.008Z] [WARN]   → {"ok":false,"error":""}
+[2026-03-09T14:20:20.009Z] [INFO] ✗ google_maps_key: Google Maps API key is configured in environment
+[2026-03-09T14:20:20.009Z] [WARN]   → {"ok":false,"error":"Environment variable NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is not set"}
+[2026-03-09T14:20:20.010Z] [INFO] ✓ main_html_exists: Main index.html file exists
+[2026-03-09T14:20:20.011Z] [INFO] ✗ ludvik_html_exists: Ludvik a Syn HTML file exists
+[2026-03-09T14:20:20.011Z] [WARN]   → {"ok":false,"error":"ENOENT: no such file or directory, access 'C:\\Projekty\\Ludvik-Solar\\ludvik-a-syn.html'"}
+[2026-03-09T14:20:20.012Z] [INFO] ✓ css_exists: Main stylesheet exists
+[2026-03-09T14:20:20.012Z] [INFO] ✓ js_exists: Main script file exists
+[2026-03-09T14:20:20.013Z] [INFO] ✓ images_reference: Reference images directory contains files
+[2026-03-09T14:20:20.013Z] [INFO] ✓ env_file: .env file exists (optional)
+[2026-03-09T14:20:20.013Z] [INFO] Heartbeat completed: 5 passed, 3 failed
+[2026-03-09T14:49:04.062Z] [INFO] Starting heartbeat check
+[2026-03-09T14:49:04.136Z] [INFO] ✗ server_running: Local dev server is running on port 3000
+[2026-03-09T14:49:04.138Z] [WARN]   → {"ok":false,"error":""}
+[2026-03-09T14:49:04.138Z] [INFO] ✗ google_maps_key: Google Maps API key is configured in environment
+[2026-03-09T14:49:04.139Z] [WARN]   → {"ok":false,"error":"Environment variable NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is not set"}
+[2026-03-09T14:49:04.140Z] [INFO] ✓ main_html_exists: Main index.html file exists
+[2026-03-09T14:49:04.141Z] [INFO] ✗ ludvik_html_exists: Ludvik a Syn HTML file exists
+[2026-03-09T14:49:04.142Z] [WARN]   → {"ok":false,"error":"ENOENT: no such file or directory, access 'C:\\Projekty\\Ludvik-Solar\\ludvik-a-syn.html'"}
+[2026-03-09T14:49:04.142Z] [INFO] ✓ css_exists: Main stylesheet exists
+[2026-03-09T14:49:04.143Z] [INFO] ✓ js_exists: Main script file exists
+[2026-03-09T14:49:04.143Z] [INFO] ✓ images_reference: Reference images directory contains files
+[2026-03-09T14:49:04.144Z] [INFO] ✓ env_file: .env file exists (optional)
+[2026-03-09T14:49:04.144Z] [INFO] Heartbeat completed: 5 passed, 3 failed
+[2026-03-09T15:42:38.774Z] [INFO] Starting heartbeat check
+[2026-03-09T15:42:38.804Z] [INFO] ✗ server_running: Local dev server is running on port 3000
+[2026-03-09T15:42:38.805Z] [WARN]   → {"ok":false,"error":""}
+[2026-03-09T15:42:38.806Z] [INFO] ✗ google_maps_key: Google Maps API key is configured in environment
+[2026-03-09T15:42:38.806Z] [WARN]   → {"ok":false,"error":"Environment variable NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is not set"}
+[2026-03-09T15:42:38.807Z] [INFO] ✓ main_html_exists: Main index.html file exists
+[2026-03-09T15:42:38.808Z] [INFO] ✗ ludvik_html_exists: Ludvik a Syn HTML file exists
+[2026-03-09T15:42:38.808Z] [WARN]   → {"ok":false,"error":"ENOENT: no such file or directory, access 'C:\\Projekty\\Ludvik-Solar\\ludvik-a-syn.html'"}
+[2026-03-09T15:42:38.809Z] [INFO] ✓ css_exists: Main stylesheet exists
+[2026-03-09T15:42:38.810Z] [INFO] ✓ js_exists: Main script file exists
+[2026-03-09T15:42:38.811Z] [INFO] ✓ images_reference: Reference images directory contains files
+[2026-03-09T15:42:38.811Z] [INFO] ✓ env_file: .env file exists (optional)
+[2026-03-09T15:42:38.812Z] [INFO] Heartbeat completed: 5 passed, 3 failed
+[2026-03-09T15:43:18.457Z] [INFO] Starting heartbeat check
+[2026-03-09T15:43:18.500Z] [INFO] ✓ server_running: Local dev server is running on port 3001
+[2026-03-09T15:43:18.501Z] [INFO] ✓ google_maps_key: Google Maps API key is configured in environment
+[2026-03-09T15:43:18.502Z] [INFO] ✓ main_html_exists: Main index.html file exists
+[2026-03-09T15:43:18.503Z] [INFO] ✓ css_exists: Main stylesheet exists
+[2026-03-09T15:43:18.504Z] [INFO] ✓ js_exists: Main script file exists
+[2026-03-09T15:43:18.504Z] [INFO] ✓ images_reference: Reference images directory contains files
+[2026-03-09T15:43:18.505Z] [INFO] ✓ env_file: .env file exists (optional)
+[2026-03-09T15:43:18.506Z] [INFO] Heartbeat completed: 7 passed, 0 failed
+[2026-03-11T10:55:02.204Z] [INFO] Starting heartbeat check
+[2026-03-11T10:55:02.237Z] [INFO] ✓ server_running: Local dev server is running on port 3000
+[2026-03-11T10:55:02.237Z] [INFO] ✓ google_maps_key: Google Maps API key is configured in environment
+[2026-03-11T10:55:02.238Z] [INFO] ✓ main_html_exists: Main index.html file exists
+[2026-03-11T10:55:02.239Z] [INFO] ✓ css_exists: Main stylesheet exists
+[2026-03-11T10:55:02.239Z] [INFO] ✓ js_exists: Main script file exists
+[2026-03-11T10:55:02.239Z] [INFO] ✓ images_reference: Reference images directory contains files
+[2026-03-11T10:55:02.240Z] [INFO] ✓ env_file: .env file exists (optional)
+[2026-03-11T10:55:02.240Z] [INFO] Heartbeat completed: 7 passed, 0 failed
+[2026-03-11T10:56:05.528Z] [INFO] Starting heartbeat check
+[2026-03-11T10:56:05.555Z] [INFO] ✓ server_running: Local dev server is running on port 3000
+[2026-03-11T10:56:05.556Z] [INFO] ✓ google_maps_key: Google Maps API key is configured in environment
+[2026-03-11T10:56:05.556Z] [INFO] ✓ main_html_exists: Main index.html file exists
+[2026-03-11T10:56:05.557Z] [INFO] ✓ css_exists: Main stylesheet exists
+[2026-03-11T10:56:05.558Z] [INFO] ✓ js_exists: Main script file exists
+[2026-03-11T10:56:05.559Z] [INFO] ✓ images_reference: Reference images directory contains files
+[2026-03-11T10:56:05.559Z] [INFO] ✓ env_file: .env file exists (optional)
+[2026-03-11T10:56:05.560Z] [INFO] Heartbeat completed: 7 passed, 0 failed
+[2026-03-11T10:59:20.849Z] [INFO] Starting heartbeat check
+[2026-03-11T10:59:20.880Z] [INFO] ✓ server_running: Local dev server is running on port 3000
+[2026-03-11T10:59:20.881Z] [INFO] ✓ google_maps_key: Google Maps API key is configured in environment
+[2026-03-11T10:59:20.882Z] [INFO] ✓ main_html_exists: Main index.html file exists
+[2026-03-11T10:59:20.882Z] [INFO] ✓ css_exists: Main stylesheet exists
+[2026-03-11T10:59:20.883Z] [INFO] ✓ js_exists: Main script file exists
+[2026-03-11T10:59:20.883Z] [INFO] ✓ images_reference: Reference images directory contains files
+[2026-03-11T10:59:20.884Z] [INFO] ✓ env_file: .env file exists (optional)
+[2026-03-11T10:59:20.885Z] [INFO] Heartbeat completed: 7 passed, 0 failed
+[2026-03-11T10:59:54.983Z] [INFO] Starting heartbeat check
+[2026-03-11T10:59:55.011Z] [INFO] ✓ server_running: Local dev server is running on port 3000
+[2026-03-11T10:59:55.012Z] [INFO] ✓ google_maps_key: Google Maps API key is configured in environment
+[2026-03-11T10:59:55.013Z] [INFO] ✓ main_html_exists: Main index.html file exists
+[2026-03-11T10:59:55.014Z] [INFO] ✓ css_exists: Main stylesheet exists
+[2026-03-11T10:59:55.014Z] [INFO] ✓ js_exists: Main script file exists
+[2026-03-11T10:59:55.015Z] [INFO] ✓ images_reference: Reference images directory contains files
+[2026-03-11T10:59:55.016Z] [INFO] ✓ env_file: .env file exists (optional)
+[2026-03-11T10:59:55.016Z] [INFO] Heartbeat completed: 7 passed, 0 failed
+[2026-03-11T11:17:04.392Z] [INFO] Starting heartbeat check
+[2026-03-11T11:17:04.420Z] [INFO] ✗ server_running: Local dev server is running on port 3000
+[2026-03-11T11:17:04.420Z] [WARN]   → {"ok":false,"error":""}
+[2026-03-11T11:17:04.421Z] [INFO] ✓ google_maps_key: Google Maps API key is configured in environment
+[2026-03-11T11:17:04.422Z] [INFO] ✓ main_html_exists: Main index.html file exists
+[2026-03-11T11:17:04.422Z] [INFO] ✓ css_exists: Main stylesheet exists
+[2026-03-11T11:17:04.423Z] [INFO] ✓ js_exists: Main script file exists
+[2026-03-11T11:17:04.424Z] [INFO] ✓ images_reference: Reference images directory contains files
+[2026-03-11T11:17:04.424Z] [INFO] ✓ env_file: .env file exists (optional)
+[2026-03-11T11:17:04.425Z] [INFO] Heartbeat completed: 6 passed, 1 failed
+[2026-03-11T11:20:33.627Z] [INFO] Starting heartbeat check
+[2026-03-11T11:20:33.660Z] [INFO] ✓ server_running: Local dev server is running on port 3081
+[2026-03-11T11:20:33.661Z] [INFO] ✓ google_maps_key: Google Maps API key is configured in environment
+[2026-03-11T11:20:33.662Z] [INFO] ✓ main_html_exists: Main index.html file exists
+[2026-03-11T11:20:33.662Z] [INFO] ✓ css_exists: Main stylesheet exists
+[2026-03-11T11:20:33.663Z] [INFO] ✓ js_exists: Main script file exists
+[2026-03-11T11:20:33.664Z] [INFO] ✓ images_reference: Reference images directory contains files
+[2026-03-11T11:20:33.664Z] [INFO] ✓ env_file: .env file exists (optional)
+[2026-03-11T11:20:33.664Z] [INFO] Heartbeat completed: 7 passed, 0 failed
+[2026-03-11T11:22:18.540Z] [INFO] Starting heartbeat check
+[2026-03-11T11:22:18.567Z] [INFO] ✓ server_running: Local dev server is running on port 3081
+[2026-03-11T11:22:18.568Z] [INFO] ✓ google_maps_key: Google Maps API key is configured in environment
+[2026-03-11T11:22:18.568Z] [INFO] ✓ main_html_exists: Main index.html file exists
+[2026-03-11T11:22:18.569Z] [INFO] ✗ ludvik_html_exists: Ludvík a Syn HTML file exists
+[2026-03-11T11:22:18.570Z] [WARN]   → {"ok":false,"error":"ENOENT: no such file or directory, access 'C:\\Projekty\\Ludvik-Solar\\ludvik-a-syn.html'"}
+[2026-03-11T11:22:18.570Z] [INFO] ✓ css_exists: Main stylesheet exists
+[2026-03-11T11:22:18.570Z] [INFO] ✓ js_exists: Main script file exists
+[2026-03-11T11:22:18.571Z] [INFO] ✓ images_reference: Reference images directory contains files
+[2026-03-11T11:22:18.571Z] [INFO] ✓ env_file: .env file exists (optional)
+[2026-03-11T11:22:18.572Z] [INFO] Heartbeat completed: 7 passed, 1 failed
+[2026-03-11T11:24:12.785Z] [INFO] Starting heartbeat check
+[2026-03-11T11:24:12.813Z] [INFO] ✓ server_running: Local dev server is running on port 3081
+[2026-03-11T11:24:12.814Z] [INFO] ✓ google_maps_key: Google Maps API key is configured in environment
+[2026-03-11T11:24:12.814Z] [INFO] ✓ main_html_exists: Main index.html file exists
+[2026-03-11T11:24:12.815Z] [INFO] ✓ css_exists: Main stylesheet exists
+[2026-03-11T11:24:12.815Z] [INFO] ✓ js_exists: Main script file exists
+[2026-03-11T11:24:12.816Z] [INFO] ✓ images_reference: Reference images directory contains files
+[2026-03-11T11:24:12.817Z] [INFO] ✓ env_file: .env file exists (optional)
+[2026-03-11T11:24:12.817Z] [INFO] Heartbeat completed: 7 passed, 0 failed
+[2026-03-11T11:25:03.439Z] [INFO] Starting heartbeat check
+[2026-03-11T11:25:03.470Z] [INFO] ✓ server_running: Local dev server is running on port 3081
+[2026-03-11T11:25:03.470Z] [INFO] ✓ google_maps_key: Google Maps API key is configured in environment
+[2026-03-11T11:25:03.471Z] [INFO] ✓ main_html_exists: Main index.html file exists
+[2026-03-11T11:25:03.471Z] [INFO] ✓ css_exists: Main stylesheet exists
+[2026-03-11T11:25:03.472Z] [INFO] ✓ js_exists: Main script file exists
+[2026-03-11T11:25:03.473Z] [INFO] ✓ images_reference: Reference images directory contains files
+[2026-03-11T11:25:03.474Z] [INFO] ✓ env_file: .env file exists (optional)
+[2026-03-11T11:25:03.475Z] [INFO] Heartbeat completed: 7 passed, 0 failed

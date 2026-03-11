@@ -1,0 +1,40 @@
+INFO  2026-03-09T16:48:39 +24428ms service=default version=1.2.24 args=["serve","--port","55839","--hostname","127.0.0.1","--log-level","DEBUG","--print-logs"] opencode
+INFO  2026-03-09T16:48:39 +4ms service=config path=C:\Users\Patri\.config\opencode\config.json loading
+INFO  2026-03-09T16:48:39 +3ms service=config path=C:\Users\Patri\.config\opencode\opencode.json loading
+INFO  2026-03-09T16:48:39 +13ms service=config path=C:\Users\Patri\.config\opencode\opencode.jsonc loading
+INFO  2026-03-09T16:52:04 +204724ms service=server method=GET path=/health request
+INFO  2026-03-09T16:52:04 +1ms service=server status=started method=GET path=/health request
+INFO  2026-03-09T16:52:04 +2ms service=default directory=C:\Projekty\Ludvik-Solar creating instance
+INFO  2026-03-09T16:52:04 +1ms service=project directory=C:\Projekty\Ludvik-Solar fromDirectory
+INFO  2026-03-09T16:52:04 +1ms service=db path=C:\Users\Patri\.local\share\opencode\opencode.db opening database
+INFO  2026-03-09T16:52:04 +6ms service=db count=6 mode=bundled applying migrations
+INFO  2026-03-09T16:52:04 +9ms service=default directory=C:\Projekty\Ludvik-Solar bootstrapping
+INFO  2026-03-09T16:52:04 +4ms service=config path=C:\Projekty\Ludvik-Solar\opencode.jsonc loading
+DEBUG 2026-03-09T16:52:04 +10ms service=config loading config from C:\Projekty\Ludvik-Solar\.opencode\opencode.jsonc
+INFO  2026-03-09T16:52:04 +0ms service=config path=C:\Projekty\Ludvik-Solar\.opencode\opencode.jsonc loading
+DEBUG 2026-03-09T16:52:04 +0ms service=config loading config from C:\Projekty\Ludvik-Solar\.opencode\opencode.json
+INFO  2026-03-09T16:52:04 +1ms service=config path=C:\Projekty\Ludvik-Solar\.opencode\opencode.json loading
+INFO  2026-03-09T16:52:04 +12ms service=plugin name=CodexAuthPlugin loading internal plugin
+INFO  2026-03-09T16:52:04 +1ms service=plugin name=CopilotAuthPlugin loading internal plugin
+INFO  2026-03-09T16:52:04 +0ms service=plugin name=gitlabAuthPlugin loading internal plugin
+INFO  2026-03-09T16:52:04 +1ms service=plugin path=opencode-anthropic-auth@0.0.13 loading plugin
+INFO  2026-03-09T16:52:04 +31ms service=plugin path=@different-ai/opencode-browser@latest loading plugin
+WARN  2026-03-09T16:52:04 +407ms service=bun pkg=@different-ai/opencode-browser cachedVersion=4.6.1 Failed to resolve latest version, using cached
+INFO  2026-03-09T16:52:04 +21ms service=bus type=* subscribing
+INFO  2026-03-09T16:52:04 +0ms service=bus type=session.updated subscribing
+INFO  2026-03-09T16:52:04 +1ms service=bus type=message.updated subscribing
+INFO  2026-03-09T16:52:04 +0ms service=bus type=message.part.updated subscribing
+INFO  2026-03-09T16:52:04 +0ms service=bus type=session.diff subscribing
+INFO  2026-03-09T16:52:04 +0ms service=format init
+INFO  2026-03-09T16:52:04 +0ms service=bus type=file.edited subscribing
+INFO  2026-03-09T16:52:04 +1ms service=lsp serverIds=deno, typescript, vue, eslint, oxlint, biome, gopls, ruby-lsp, pyright, elixir-ls, zls, csharp, fsharp, sourcekit-lsp, rust, clangd, svelte, astro, jdtls, kotlin-ls, yaml-ls, lua-ls, php intelephense, prisma, dart, ocaml-lsp, bash, terraform, texlab, dockerfile, gleam, clojure-lsp, nixd, tinymist, haskell-language-server, julials enabled LSP servers
+INFO  2026-03-09T16:52:04 +0ms service=file.watcher init
+INFO  2026-03-09T16:52:04 +22ms service=scheduler id=snapshot.cleanup run
+INFO  2026-03-09T16:52:04 +1ms service=scheduler id=tool.truncation.cleanup run
+INFO  2026-03-09T16:52:04 +1ms service=bus type=command.executed subscribing
+INFO  2026-03-09T16:52:04 +0ms service=file.watcher platform=win32 backend=windows watcher backend
+ERROR 2026-03-09T16:52:28 +24067ms service=server error=The connection was closed. failed
+INFO  2026-03-09T16:52:28 +11ms service=server status=completed duration=24611 method=GET path=/health request
+INFO  2026-03-09T16:54:17 +108770ms service=server method=GET path=/health request
+INFO  2026-03-09T16:54:17 +0ms service=server status=started method=GET path=/health request
+INFO  2026-03-09T16:54:17 +158ms service=server status=completed duration=158 method=GET path=/health request

@@ -1,0 +1,58 @@
+{
+  "name": "soul",
+  "description": "Monitoring and health checks for Ludvik-Solar websites",
+  "checks": [
+    {
+      "id": "server_running",
+      "description": "Local dev server is running on port 3081",
+      "type": "http",
+      "url": "http://localhost:3081",
+      "expectedStatus": 200,
+      "timeout": 5000
+    },
+    {
+      "id": "google_maps_key",
+      "description": "Google Maps API key is configured in environment",
+      "type": "env",
+      "key": "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY",
+      "optional": false
+    },
+    {
+      "id": "main_html_exists",
+      "description": "Main index.html file exists",
+      "type": "file",
+      "path": "index.html"
+    },
+    {
+      "id": "css_exists",
+      "description": "Main stylesheet exists",
+      "type": "file",
+      "path": "styles.css"
+    },
+    {
+      "id": "js_exists",
+      "description": "Main script file exists",
+      "type": "file",
+      "path": "script.js"
+    },
+    {
+      "id": "images_reference",
+      "description": "Reference images directory contains files",
+      "type": "directory",
+      "path": "images/reference",
+      "minFiles": 1
+    },
+    {
+      "id": "env_file",
+      "description": ".env file exists (optional)",
+      "type": "file",
+      "path": ".env",
+      "optional": true
+    }
+  ],
+  "heartbeat": {
+    "interval": 300000,
+    "logFile": ".opencode/soul/heartbeat.log",
+    "maxLogSize": 10485760
+  }
+}

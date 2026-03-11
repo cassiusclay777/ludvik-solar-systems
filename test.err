@@ -1,0 +1,11 @@
+INFO  2026-03-09T16:52:26 +24429ms service=default version=1.2.24 args=["serve","--port","55839","--hostname","127.0.0.1","--log-level","DEBUG","--print-logs"] opencode
+INFO  2026-03-09T16:52:26 +3ms service=config path=C:\Users\Patri\.config\opencode\config.json loading
+INFO  2026-03-09T16:52:26 +3ms service=config path=C:\Users\Patri\.config\opencode\opencode.json loading
+INFO  2026-03-09T16:52:26 +11ms service=config path=C:\Users\Patri\.config\opencode\opencode.jsonc loading
+ERROR 2026-03-09T16:52:26 +45ms service=default name=Error message=Failed to start server on port 55839 stack=Error: Failed to start server on port 55839
+    at listen (src/server/server.ts:620:28)
+    at <anonymous> (src/cli/cmd/serve.ts:18:27)
+    at processTicksAndRejections (native:7:39) fatal
+[91m[1mError: [0mUnexpected error, check log file at  for more details
+
+Failed to start server on port 55839

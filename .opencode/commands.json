@@ -1,0 +1,57 @@
+{
+  "web:solar": {
+    "agent": "web",
+    "description": "Focus on Solar Power Energy website (index.html, styles.css, script.js)",
+    "args": []
+  },
+  "web:ludvik": {
+    "agent": "web",
+    "description": "Focus on Ludvík a Syn website (ludvik-a-syn.html, inline styles/scripts)",
+    "args": []
+  },
+  "web:update-images": {
+    "agent": "web",
+    "description": "Manage image galleries in images/ directories",
+    "args": []
+  },
+  "web:responsive": {
+    "agent": "web",
+    "description": "Ensure responsive design across devices",
+    "args": []
+  },
+  "web:validate": {
+    "agent": "web",
+    "description": "Check HTML/CSS/JS for errors",
+    "args": []
+  },
+  "content:solar": {
+    "agent": "content",
+    "description": "Edit Solar Power Energy text content",
+    "args": []
+  },
+  "content:ludvik": {
+    "agent": "content",
+    "description": "Edit Ludvík a Syn text content",
+    "args": []
+  },
+  "content:cta": {
+    "agent": "content",
+    "description": "Optimize call-to-action texts",
+    "args": []
+  },
+  "content:seo": {
+    "agent": "content",
+    "description": "Improve SEO meta tags and descriptions",
+    "args": []
+  },
+  "content:translate": {
+    "agent": "content",
+    "description": "Assist with Czech/English translations",
+    "args": []
+  },
+  "soul:heartbeat": {
+    "agent": "soul",
+    "description": "Run health checks for websites and server",
+    "args": []
+  }
+}
