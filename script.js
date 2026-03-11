@@ -173,6 +173,7 @@
     // --- 4. Formulář ---
     var contactForm = document.getElementById('contactForm') || document.getElementById('quoteForm');
     if (contactForm) {
+        var submitBtn = contactForm.querySelector('button[type="submit"]');
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             var gdpr = document.getElementById('gdpr');
@@ -181,11 +182,27 @@
                 if (gdpr) gdpr.focus();
                 return;
             }
+            
+            // UI Feedback
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Odesílám...';
+            }
+
             var interestEl = document.getElementById('interest');
             var interestLabel = interestEl.options[interestEl.selectedIndex] ? interestEl.options[interestEl.selectedIndex].text : '';
             var n = document.getElementById('name').value, ph = document.getElementById('phone').value, em = document.getElementById('email').value, m = document.getElementById('msg').value;
             var body = 'Zájem: ' + interestLabel + '\nJméno: ' + n + '\nTelefon: ' + ph + '\nEmail: ' + em + '\n\n' + m;
-            window.location.href = 'mailto:jakubludvik93@gmail.com?subject=' + encodeURIComponent('Poptávka FVE - ' + n) + '&body=' + encodeURIComponent(body);
+            
+            // Simulate delay for better UX
+            setTimeout(function() {
+                window.location.href = 'mailto:jakubludvik93@gmail.com?subject=' + encodeURIComponent('Poptávka FVE - ' + n) + '&body=' + encodeURIComponent(body);
+                // Reset button after redirect (in case user comes back)
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Napsat nám';
+                }
+            }, 500);
         });
     }
 

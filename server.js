@@ -55,6 +55,16 @@ const server = http.createServer((req, res) => {
       );
     }
     res.setHeader('Content-Type', MIME[ext] || 'application/octet-stream');
+    
+    // Cache hlavičky
+    if (ext === '.html') {
+        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    } else if (ext === '.css' || ext === '.js') {
+        res.setHeader('Cache-Control', 'public, max-age=3600'); // 1 hour
+    } else if (['.jpg', '.jpeg', '.png', '.gif', '.svg', '.webp'].includes(ext)) {
+        res.setHeader('Cache-Control', 'public, max-age=86400'); // 1 day
+    }
+    
     res.end(body);
   });
 });
