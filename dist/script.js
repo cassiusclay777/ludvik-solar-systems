@@ -9,11 +9,17 @@
     // --- 1. Google Maps API Loader ---
     (function() {
         var key = typeof window.__GOOGLE_MAPS_API_KEY__ !== 'undefined' ? window.__GOOGLE_MAPS_API_KEY__ : '';
+        var mapEl = document.getElementById('configurator-map');
         if (key) {
             var s = document.createElement('script');
-            s.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(key) + '&callback=initConfiguratorMap&loading=async&libraries=marker&v=weekly';
+            s.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(key) + '&callback=initConfiguratorMap&loading=async&v=weekly';
             s.async = true; s.defer = true;
+            s.onerror = function() {
+                if (mapEl) { mapEl.innerHTML = '<p class="configurator-map-error">Načtení mapy se nezdařilo (kontrola API klíče a HTTP referrerů v Google Cloud).</p>'; }
+            };
             document.body.appendChild(s);
+        } else if (mapEl) {
+            mapEl.innerHTML = '<p class="configurator-map-error">Mapa není k dispozici – na Vercelu nebyl při buildu nastaven <code>NEXT_PUBLIC_GOOGLE_MAPS_API_KEY</code>. Přidej env proměnnou a spusť nový deploy.</p>';
         }
     })();
 
@@ -22,8 +28,8 @@
         var el = document.getElementById('configurator-map');
         if (!el) return;
         var center = { lat: 49.2148, lng: 16.0543 };
-        var map = new google.maps.Map(el, { center: center, zoom: 12, mapId: 'DEMO_MAP_ID' });
-        var advancedMarker = null;
+        var map = new google.maps.Map(el, { center: center, zoom: 12 });
+        var marker = null;
         var geocoder = new google.maps.Geocoder();
         var btn = document.getElementById('config-show-map');
         if (btn) btn.onclick = function() {
@@ -33,15 +39,16 @@
                 if (status === 'OK' && res[0]) {
                     var pos = res[0].geometry.location;
                     map.setCenter(pos);
-                    if (!advancedMarker) advancedMarker = new google.maps.marker.AdvancedMarkerElement({ map: map, position: pos });
-                    else advancedMarker.position = pos;
+                    if (!marker) marker = new google.maps.Marker({ map: map, position: pos });
+                    else marker.setPosition(pos);
                 } else alert('Adresu nenalezeno.');
             });
         };
     };
 
     (function roofConfig() {
-        var W = 400, P = 1050, E = 6.5, S = 0.35, X = 1.5;
+        // W = výkon panelu (W), P = měrný výnos kWh/kWp/rok, E = cena elektřiny Kč/kWh, S = podíl vlastní spotřeby, X = výkup Kč/kWh
+        var W = 400, P = 1050, E = 7, S_DEFAULT = 0.35, X = 1.8;
         var pool = document.getElementById('panel-pool'), grid = document.getElementById('roof-grid');
         if (!pool || !grid) return;
 
@@ -67,12 +74,27 @@
 
         function updateCfg() {
             var n = document.querySelectorAll('#roof-grid .roof-slot.filled').length;
+            var batteryEl = document.getElementById('config-battery');
+            var S = batteryEl ? parseFloat(batteryEl.value) || S_DEFAULT : S_DEFAULT;
             var kwp = n * W / 1000, o = parseFloat(document.getElementById('config-orientation').value) || 1, sl = parseFloat(document.getElementById('config-slope').value) || 1;
             var prod = Math.round(kwp * P * o * sl), self = prod * S, exp = prod * (1 - S), sav = Math.round(self * E + exp * X);
             document.getElementById('cfg-panels').textContent = n;
             document.getElementById('cfg-kwp').textContent = kwp.toFixed(1) + ' kWp';
             document.getElementById('cfg-production').textContent = prod.toLocaleString('cs-CZ') + ' kWh';
             document.getElementById('cfg-savings').textContent = sav.toLocaleString('cs-CZ') + ' Kč';
+            var nzuRow = document.getElementById('cfg-nzu-row');
+            var nzuVal = document.getElementById('cfg-nzu');
+            if (nzuRow && nzuVal) {
+                if (n > 0) {
+                    nzuRow.style.display = '';
+                    nzuVal.textContent = S >= 0.5 ? 'až 200 000 Kč (s baterií)' : 'až 100 000 Kč (bez baterie)';
+                } else {
+                    nzuRow.style.display = 'none';
+                }
+            }
+            var calcProd = document.getElementById('calc-production');
+            if (calcProd && n > 0) calcProd.value = prod;
+            if (typeof window.updateCalculatorSummary === 'function') window.updateCalculatorSummary();
         }
 
         pool.ondragstart = function(e) {
@@ -108,19 +130,65 @@
             var s = e.target.closest('.roof-slot');
             if (s && !s.classList.contains('filled') && !e.target.closest('.panel-remove')) fillSlot(s);
         });
-        var orient = document.getElementById('config-orientation'), slope = document.getElementById('config-slope');
+        var orient = document.getElementById('config-orientation'), slope = document.getElementById('config-slope'), battery = document.getElementById('config-battery');
         if (orient) orient.onchange = updateCfg;
         if (slope) slope.onchange = updateCfg;
-        document.getElementById('config-export-pdf').onclick = function() {
-            var doc = new window.jspdf.jsPDF();
-            var a = document.getElementById('config-address').value || '—';
-            doc.setFontSize(18); doc.text('Návrh FVE', 14, 22);
-            doc.setFontSize(11);
-            doc.text('Adresa: ' + a, 14, 32);
-            doc.text('Panely: ' + document.getElementById('cfg-panels').textContent + ', ' + document.getElementById('cfg-kwp').textContent, 14, 38);
-            doc.text('Výroba: ' + document.getElementById('cfg-production').textContent + ', Úspora: ' + document.getElementById('cfg-savings').textContent, 14, 44);
-            doc.save('navrh-fve.pdf');
-        };
+        if (battery) battery.onchange = updateCfg;
+        var pdfBtn = document.getElementById('config-export-pdf');
+        if (pdfBtn) {
+            pdfBtn.onclick = function() {
+                var JsPDF = (window.jspdf && window.jspdf.jsPDF) ? window.jspdf.jsPDF : (window.jsPDF || null);
+                if (!JsPDF) {
+                    alert('Export PDF není k dispozici (knihovna jspdf se nenačetla). Zkuste obnovit stránku.');
+                    return;
+                }
+                var doc = new JsPDF();
+                var a = document.getElementById('config-address').value || '—';
+                doc.setFontSize(18); doc.text('Návrh FVE', 14, 22);
+                doc.setFontSize(11);
+                doc.text('Adresa: ' + a, 14, 32);
+                doc.text('Panely: ' + document.getElementById('cfg-panels').textContent + ', ' + document.getElementById('cfg-kwp').textContent, 14, 38);
+                doc.text('Výroba: ' + document.getElementById('cfg-production').textContent + ', Úspora: ' + document.getElementById('cfg-savings').textContent, 14, 44);
+                doc.save('navrh-fve.pdf');
+            };
+        }
+    })();
+
+    // --- 2b. Kalkulačka úspor ---
+    (function savingsCalculator() {
+        var S = 0.35, E = 7, X = 1.8;
+        var consumptionEl = document.getElementById('calc-consumption');
+        var priceEl = document.getElementById('calc-price');
+        var productionEl = document.getElementById('calc-production');
+        var investmentEl = document.getElementById('calc-investment');
+        if (!consumptionEl || !priceEl || !productionEl) return;
+
+        function updateCalculatorSummary() {
+            var consumption = parseFloat(consumptionEl.value) || 0;
+            var price = parseFloat(priceEl.value) || 0;
+            var production = parseFloat(productionEl.value) || 0;
+            var investment = parseFloat(investmentEl.value) || 0;
+            var before = Math.round(consumption * price);
+            var self = production * S, exp = production * (1 - S);
+            var savings = Math.round(self * E + exp * X);
+            var after = Math.max(0, before - savings);
+            document.getElementById('calc-before').textContent = before.toLocaleString('cs-CZ') + ' Kč/rok';
+            document.getElementById('calc-savings').textContent = savings.toLocaleString('cs-CZ') + ' Kč/rok';
+            document.getElementById('calc-after').textContent = after.toLocaleString('cs-CZ') + ' Kč/rok';
+            var paybackEl = document.getElementById('calc-payback');
+            if (investment > 0 && savings > 0) {
+                var years = (investment / savings).toFixed(1);
+                paybackEl.textContent = years.replace('.', ',') + ' let';
+            } else {
+                paybackEl.textContent = investment > 0 ? '— (zadejte výrobu FVE)' : '—';
+            }
+        }
+        window.updateCalculatorSummary = updateCalculatorSummary;
+        consumptionEl.addEventListener('input', updateCalculatorSummary);
+        priceEl.addEventListener('input', updateCalculatorSummary);
+        productionEl.addEventListener('input', updateCalculatorSummary);
+        if (investmentEl) investmentEl.addEventListener('input', updateCalculatorSummary);
+        updateCalculatorSummary();
     })();
 
     // --- 3. Navigace a menu ---
@@ -229,5 +297,45 @@
                 openLightbox(this.href, this.getAttribute('data-caption') || '');
             });
         });
+    })();
+
+    // --- 6. Scroll Animations & Header ---
+    (function scrollAnimations() {
+        var observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.benefit-card, .service-card, .ref-card, .why-now-block, .step-item, .contact-block').forEach(function(el) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        document.querySelectorAll('.animate-in').forEach(function(el) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        });
+
+        var header = document.querySelector('.site-header');
+        if (header) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
     })();
 })();

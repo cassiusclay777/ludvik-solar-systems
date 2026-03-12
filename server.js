@@ -45,14 +45,12 @@ const server = http.createServer((req, res) => {
     }
     let body = data;
     const ext = path.extname(filePath);
-    if ((filePath.endsWith('index.html') || req.url === '/') && KEY) {
-      body = Buffer.from(
-        data.toString('utf8').replace(
-          '<body>',
-          '<body>\n    <script>window.__GOOGLE_MAPS_API_KEY__ = ' + JSON.stringify(KEY) + ';</script>'
-        ),
-        'utf8'
-      );
+    if (filePath.endsWith('index.html') || req.url === '/') {
+      let str = data.toString('utf8');
+      if (KEY) {
+        str = str.replace('"{{GOOGLE_MAPS_API_KEY}}"', JSON.stringify(KEY));
+      }
+      body = Buffer.from(str, 'utf8');
     }
     res.setHeader('Content-Type', MIME[ext] || 'application/octet-stream');
     

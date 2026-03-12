@@ -7,7 +7,8 @@
     "dev:simple": "node server.js",
     "start": "npm run dev",
     "build": "node build.js",
-    "heartbeat": "node .opencode/soul/heartbeat.js"
+    "heartbeat": "node .opencode/soul/heartbeat.js",
+    "lint": "echo 'Linting not configured. Install htmlhint, csslint if needed.'"
   },
   "devDependencies": {
     "browser-sync": "^3.0.3",

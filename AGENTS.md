@@ -39,6 +39,23 @@ Use for monitoring and health checks.
 **Commands:**
 - `/soul heartbeat` – run health checks for websites and server
 
+### AgenticSeek (external)
+Use for research (dotace, konkurence, trendy FVE, SEO), copy (meta, CTA, FAQ), configurator code suggestions, image/icon sources, translations. No file access – outputs to chat for copy-paste into Cursor.
+
+**Prompt:** [.opencode/agenticseek-prompt.md](.opencode/agenticseek-prompt.md) – copy the block from "Jsi asistent…" into AgenticSeek.
+
+### agenticseek (API)
+Volání AgenticSeek přímo přes API – research, texty, kód bez opouštění OpenCode.
+
+**API:** `POST http://localhost:8000/query`
+**Frontend:** `http://localhost:3002`
+**Skill:** [.opencode/skills/agenticseek/SKILL.md](.opencode/skills/agenticseek/SKILL.md)
+
+**Použití:**
+```
+/agenticseek [prompt] → volá API → vrací výsledek
+```
+
 ## Project Structure
 
 ```
@@ -54,6 +71,7 @@ Use for monitoring and health checks.
 │   ├── agent/
 │   │   ├── web.md
 │   │   └── content.md
+│   ├── agenticseek-prompt.md   # Full prompt for AgenticSeek (research, copy, no file access)
 │   ├── soul/
 │   │   ├── agent.md
 │   │   ├── config.json
@@ -64,10 +82,19 @@ Use for monitoring and health checks.
 
 ## Development Commands
 
-- `npm run dev` – start local HTTP server (port 3000)
+- `npm run dev` – start local HTTP server with live reload (port 3080)
+- `npm run dev:simple` – start simple static server (port 3081)
+- `npm run build` – build static site to `dist/` directory
 - `npm run heartbeat` – run health checks for websites and server
-- Open `http://localhost:3000` to preview Solar Power Energy site
-- Open `http://localhost:3000/ludvik-a-syn.html` to preview Ludvík a Syn site
+- Open `http://localhost:3080` to preview Solar Power Energy site with live reload
+- Open `http://localhost:3080/ludvik-a-syn.html` to preview Ludvík a Syn site
+
+## Tools
+
+- `python optimize_images.py` – compress JPG images in `images/` directory
+- Google Maps API key required for configurator map (set in `.env` as `GOOGLE_MAPS_API_KEY`)
+- Build script copies files to `dist/` and injects API key
+- Live reload via BrowserSync during development
 
 ## Guidelines
 
@@ -76,4 +103,4 @@ Use for monitoring and health checks.
 - External links (mapy.cz, GoodWe, tipa.eu) should remain intact
 - Use lazy loading for gallery images: `loading="lazy"`
 - Follow existing CSS class naming conventions (container, section-title, etc.)
-- No build process – pure HTML/CSS/JS
+- Simple build process – HTML/CSS/JS with image optimization
