@@ -1,0 +1,149 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap');
+  .flyer { max-width: 600px; margin: 0 auto; background: #fff; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; font-family: 'Source Sans 3', sans-serif; }
+  .hero { background: linear-gradient(135deg, #1a4a1a 0%, #2d7a2d 60%, #f5a623 100%); padding: 2rem 2rem 1.5rem; color: #fff; position: relative; }
+  .hero-logo { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.85; margin-bottom: 0.5rem; }
+  .hero-title { font-family: 'Oswald', sans-serif; font-size: 38px; font-weight: 700; line-height: 1.1; margin: 0 0 0.25rem; }
+  .hero-title span { color: #f5c842; }
+  .hero-sub { font-size: 15px; opacity: 0.9; margin: 0; }
+  .sun-icon { position: absolute; right: 1.5rem; top: 1.5rem; width: 64px; height: 64px; border-radius: 50%; background: #f5c842; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 12px rgba(245,200,66,0.2); }
+  .sun-icon svg { width: 32px; height: 32px; color: #1a4a1a; }
+  .promo-bar { background: #f5c842; padding: 0.75rem 2rem; display: flex; align-items: center; gap: 1rem; }
+  .promo-bar-text { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; color: #1a4a1a; }
+  .promo-bar-note { font-size: 13px; color: #2d5a1a; }
+  .body { padding: 1.5rem 2rem; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: #2d7a2d; font-weight: 600; margin: 0 0 0.75rem; }
+  .features { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 0.75rem; }
+  .feat { display: flex; align-items: flex-start; gap: 8px; padding: 10px; background: #f8fdf8; border: 0.5px solid #c6e8c6; border-radius: 8px; }
+  .feat svg { width: 20px; height: 20px; color: #2d7a2d; flex-shrink: 0; margin-top: 1px; }
+  .feat-text { font-size: 13px; color: var(--color-text-primary); line-height: 1.4; }
+  .feat-text strong { font-size: 14px; display: block; font-weight: 600; margin-bottom: 2px; }
+  .nzu-bar { display: flex; align-items: center; gap: 10px; background: linear-gradient(90deg, #1a4a1a, #2d7a2d); border-radius: 8px; padding: 10px 14px; margin-bottom: 1rem; }
+  .nzu-bar svg { width: 22px; height: 22px; flex-shrink: 0; }
+  .nzu-bar-text strong { display: block; font-family: 'Oswald', sans-serif; font-size: 15px; color: #f5c842; font-weight: 600; }
+  .nzu-bar-text span { font-size: 12px; color: rgba(255,255,255,0.85); }
+  .divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 1.25rem 0; }
+  .contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+  .contact-card { padding: 12px; border: 0.5px solid var(--color-border-tertiary); border-radius: 8px; background: var(--color-background-secondary); }
+  .contact-role { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-text-secondary); margin: 0 0 4px; }
+  .contact-name { font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; margin: 0 0 6px; color: var(--color-text-primary); }
+  .contact-row { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--color-text-secondary); margin-bottom: 3px; }
+  .contact-row svg { width: 14px; height: 14px; color: #2d7a2d; flex-shrink: 0; }
+  .contact-row a { color: #1a6a1a; text-decoration: none; font-weight: 600; }
+  .bottom-row { display: flex; gap: 10px; margin-bottom: 1.25rem; }
+  .area-bar { flex: 1; background: #f8fdf8; border: 0.5px solid #c6e8c6; border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; gap: 8px; }
+  .area-bar svg { width: 18px; height: 18px; color: #2d7a2d; flex-shrink: 0; }
+  .area-bar span { font-size: 13px; color: var(--color-text-secondary); }
+  .area-bar strong { color: var(--color-text-primary); }
+  .web-badge { flex-shrink: 0; background: #1a4a1a; border-radius: 8px; padding: 8px 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .web-badge .web-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(245,200,66,0.7); }
+  .web-badge .web-url { font-family: 'Oswald', sans-serif; font-size: 15px; color: #f5c842; letter-spacing: 0.5px; }
+  .cta-badge { display: inline-block; background: #2d7a2d; color: #fff; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1px; padding: 5px 14px; border-radius: 20px; margin-bottom: 1rem; }
+  .footer-bar { background: #1a4a1a; padding: 0.75rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Oswald', sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); letter-spacing: 1px; }
+  .footer-addr { font-size: 11px; color: rgba(255,255,255,0.5); text-align: right; }
+</style>
+
+<h2 class="sr-only">Leták Solar Power Energy s.r.o. – montáž fotovoltaických elektráren</h2>
+<div class="flyer">
+  <div class="hero">
+    <div class="sun-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </div>
+    <div class="hero-logo">Solar Power Energy s.r.o.</div>
+    <div class="hero-title">Solární<br>energie <span>pro váš dům</span></div>
+    <div class="hero-sub">Montáž FVE na klíč · Třebíč · Znojmo · Vysočina</div>
+  </div>
+
+  <div class="promo-bar">
+    <div>
+      <div class="promo-bar-text">Kompletní instalace již od 36 000 Kč</div>
+      <div class="promo-bar-note">Přízemní bungalov, trasa kabelu do 10 m – vše v ceně</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="section-title">Proč si vybrat nás?</div>
+    <div class="features">
+      <div class="feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M9 9a3 3 0 0 1 6 0c0 2-3 3-3 5"/></svg>
+        <div class="feat-text"><strong>Bezkonkurenční cena</strong>Nabídka šitá na míru bez zbytečných příplatků</div>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        <div class="feat-text"><strong>Montáž na klíč</strong>Od projektu až po připojení do sítě</div>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="18" height="11" rx="2"/><path d="M22 11v3"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="13" y1="12" x2="15" y2="12"/></svg>
+        <div class="feat-text"><strong>Baterie &amp; servis</strong>Bateriová úložiště, monitoring a pravidelný servis</div>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div class="feat-text"><strong>Zkušení odborníci</strong>Rodinná firma s osobním přístupem</div>
+      </div>
+    </div>
+
+    <div class="nzu-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <div class="nzu-bar-text">
+        <strong>Dotace Nová zelená úsporám – až 200 000 Kč</strong>
+        <span>Pomůžeme vám vyřídit dotaci na FVE s baterií. Stačí zavolat.</span>
+      </div>
+    </div>
+
+    <div class="cta-badge">Zavolejte nám – nezávazná konzultace zdarma</div>
+
+    <hr class="divider">
+
+    <div class="section-title">Kontaktujte nás</div>
+    <div class="contacts">
+      <div class="contact-card">
+        <div class="contact-role">Jednatel</div>
+        <div class="contact-name">Ing. Lubomír Ludvík</div>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.49 5.49l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 15.42z"/></svg>
+          <a href="tel:+420724658905">724 658 905</a>
+        </div>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:lludvik@volny.cz">lludvik@volny.cz</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">Montáž &amp; obchod</div>
+        <div class="contact-name">Jakub Ludvík</div>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.49 5.49l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 15.42z"/></svg>
+          <a href="tel:+420720308745">720 308 745</a>
+        </div>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:jakubludvik93@gmail.com">jakubludvik93@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="area-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Působíme v regionech: <strong>Třebíč, Znojmo, Moravské Budějovice</strong> a celé Vysočině · Sídlo: <strong>Rouchovany 12, 675 57</strong></span>
+      </div>
+      <div class="web-badge">
+        <span class="web-label">Web</span>
+        <span class="web-url">ludvik-solar.cz</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <div class="footer-brand">SOLAR POWER ENERGY s.r.o. · IČ 29190215</div>
+    <div class="footer-addr">Ludvík a Syn</div>
+  </div>
+</div>
